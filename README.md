@@ -3,6 +3,10 @@
 
 ## Bio
 
+### Email: putloj@rpi.edu
+### Github ID: @jputlock
+### Mattermost Handle: @jputlock
+
 Hi! I'm a rising sophomore at Rensselaer Polytechnic Institute (RPI) working at an undergraduate degree in Computer Science and Mathematics. I'm currently taking Operating Systems, Graph Theory, Open Source Software, and Foundations of Analysis as of Summer 2019.
 
 Picture of me:
