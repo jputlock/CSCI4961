@@ -11,24 +11,24 @@
 short paragraph here
 
 ## Linux
-screenshot here: ![linus](images/linux_screenshot.png)
+screenshot here: ![linus](images/tree.png)
 
 ## Regex
 
 7 regex problems:
-![reg1](images/regex1)
-![reg2](images/regex2)
-![reg3](images/regex3)
-![reg4](images/regex4)
-![reg5](images/regex5)
-![reg6](images/regex6)
-![reg7](images/regex7)
+![reg1](images/regex1.png)
+![reg2](images/regex2.png)
+![reg3](images/regex3.png)
+![reg4](images/regex4.png)
+![reg5](images/regex5.png)
+![reg6](images/regex6.png)
+![reg7](images/regex7.png)
 
 4 regex crosswords:
-![cross1](images/cross1)
-![cross2](images/cross2)
-![cross3](images/cross3)
-![cross4](images/cross4)
+![cross1](images/cross1.png)
+![cross2](images/cross2.png)
+![cross3](images/cross3.png)
+![cross4](images/cross4.png)
 
 Snap/Blockly Progress here:
 sure
