@@ -10,4 +10,4 @@ Picture of me:
 
 
 ## Lab Reports
-[Lab 1](labs/lab-01/lab01.md)
+[Lab 1](labs/lab01/lab01.md)
