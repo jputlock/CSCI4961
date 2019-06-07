@@ -15,3 +15,5 @@ Picture of me:
 
 ## Lab Reports
 [Lab 1](labs/lab01/lab01.md)
+[Lab 2](labs/lab02/lab02.md)
+[Lab 3](labs/lab03/lab03.md)
