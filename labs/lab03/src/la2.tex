@@ -1,19 +1,16 @@
 \documentclass[preview]{standalone}
-\usepackage{tikz}
 
-\newcommand{\Rect}[5]{
-    \draw[#1] (#2,#3) rectangle(#2+#4,#3-#5);
-}
+\usepackage{amsmath}
 
 \begin{document}
 
-\begin{tikzpicture}
-\Rect{}{0}{4}{4}{4}
-
-\Rect{fill=black}{0}{4}{2}{2}
-\Rect{fill=black}{0}{2}{2}{2}
-\Rect{fill=black}{2}{2}{2}{2}
-
-\end{tikzpicture}
+	\begin{equation}
+		\begin{bmatrix}
+			1 & 1 & 1 & 1 \\
+			-1 & 1 & -1 & 1 \\
+			-1 & -1 & 1 & 1 \\
+			1 & -1 & -1 & 1
+	  \end{bmatrix}
+	\end{equation}
 
 \end{document}
