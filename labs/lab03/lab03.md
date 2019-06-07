@@ -12,7 +12,28 @@ Right now, the technologies I'm looking at to implement are [pdf2svg](https://gi
 The end product should be a lightweight Javascript-free LaTeX editor that renders LaTeX in real time in one document. See [Overleaf's Rich Text implementation](https://www.overleaf.com/blog/81-having-a-hard-time-convincing-your-coauthors-to-learn-latex-with-our-rich-text-mode-you-no-longer-need-to-dot-dot-dot) for a taste of the goal. In essence, I will be compartmentalizing a LaTeX document into a structure such that I can render chunks of LaTeX and interlace those with normal text.
 
 ### LaTeX:
+
+This was compiled with the following LaTeX:
+```
+\[ \sqrt{ 1 + 2 \sqrt { 1 + 3 \sqrt { 1 + 4 \sqrt { 1 + \ldots} } } }  \]     
+                                                                                
+\[ \sqrt{2}^{\sqrt{2}^{\sqrt{2}^{ \sqrt{2} \ldots } } } \] 
+```
+
 ![tex1](images/tex.png)
+
+This was compiled with the following LaTeX:
+```
+\begin{equation}                                                              
+	\begin{bmatrix}                                                             
+		1 & 1 & 1 & 1 \\                                                          
+		-1 & 1 & -1 & 1 \\                                                        
+		-1 & -1 & 1 & 1 \\                                                        
+		1 & -1 & -1 & 1                                                           
+	\end{bmatrix}                                                               
+\end{equation} 
+```
+
 ![tex2](images/tex2.png)
 
 ## Community
@@ -32,3 +53,9 @@ Gitstats says:
 - latest commit: 2019-03-16 (no key provided)
 - no branches provided
 
+### Beir Run
+- Number of contributors: 2
+- Number of lines of code: 14,225
+- First commit: 2019-3-12 (37c204611bb1029aad391aa4ada00649cffb1884)
+- Latest commit: 2019-4-26 (6bf2d7349e1f6d57f487b5d54192b584539d7592)
+- Current branches: master, Demo
