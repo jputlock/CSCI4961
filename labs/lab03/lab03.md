@@ -56,6 +56,35 @@ Gitstats says:
 ### Beir Run
 - Number of contributors: 2
 - Number of lines of code: 14,225
-- First commit: 2019-3-12 (37c204611bb1029aad391aa4ada00649cffb1884)
-- Latest commit: 2019-4-26 (6bf2d7349e1f6d57f487b5d54192b584539d7592)
+- First commit: 2019-03-12 (37c204611bb1029aad391aa4ada00649cffb1884)
+- Latest commit: 2019-04-26 (6bf2d7349e1f6d57f487b5d54192b584539d7592)
 - Current branches: master, Demo
+
+GitStats Results:
+
+- Number of authors: 4
+- Number of lines of code: 11,314
+- Commit information not provided
+- Branch information not provided
+
+### Code Buddy
+- 2 contributors
+- 1336 lines of code
+- first commit: 2019-03-19
+- latest commit: 2019-04-25
+- current branches: master add-code-of-conduct1
+
+When I ran gitstats on CodeBuddy the total lines of code different from the number I had earlier. Gitstats says the project has 1288 lines or code. Also, gitstats provides a lot more detail on how the files changed and how many commits each author made through graphs.
+
+### ckRGB
+- Contributors: 3
+
+- Lines of code: 68789
+
+- First Commit: Mar 10, 2019
+
+- Final Commit: Jun 7, 2019
+
+- Current Branches: master, c_api, hardware
+
+The lines of code differ a lot from the html and terminal output. From the terminal, I have 68789. From the gitstats output, I have 41272. The reason why there is a difference is probably because the command ran in the terminal takes in account of every document in the repository, which includes documentations and README.md. The gitstats only looks for lines of code that are actually working, which excludes the documentations. 
