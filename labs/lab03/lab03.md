@@ -8,3 +8,7 @@ My project is exploring the area of technology that helps with maximizing effici
 Right now, the technologies I'm looking at to implement are [pdf2svg](https://github.com/dawbarton/pdf2svg) for speedy PDF to SVG conversion and [GTKmm](https://www.gtkmm.org/en/) for creating a GUI.
 
 The end product should be a lightweight Javascript-free LaTeX editor that renders LaTeX in real time in one document. See [Overleaf's Rich Text implementation](https://www.overleaf.com/blog/81-having-a-hard-time-convincing-your-coauthors-to-learn-latex-with-our-rich-text-mode-you-no-longer-need-to-dot-dot-dot) for a taste of the goal. In essence, I will be compartmentalizing a LaTeX document into a structure such that I can render chunks of LaTeX and interlace those with normal text.
+
+## LaTeX:
+![tex1](images/tex.png)
+![tex2](images/tex2.png)
