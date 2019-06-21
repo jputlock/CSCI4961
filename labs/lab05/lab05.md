@@ -368,3 +368,62 @@ install(FILES MathFunctions.h DESTINATION include)
 ```
 
 !(step5)[images/step5.png]
+
+# Part 2
+
+## Makefile
+```
+all: static
+
+shared: program.o libblock.so
+	cc program.o libblock.so -o shared -Wl,-rpath='.'
+
+static: program.o libprint.a
+	cc program.o libprint.a -o static
+
+program.o:
+	cc -fPIC -c program.c -o program.o
+
+# Creating a Static Library
+
+libprint.a: block.o
+	ar qc libprint.a source/block.o
+
+# Creating a Shared Library
+
+libblock.so: block.o
+	cc -shared -o libblock.so source/block.o
+
+# both libraries depend on this
+
+block.o:
+	cc -fPIC -c source/block.c -o source/block.o
+
+clean:
+	rm -f *.o Makefile.bak
+```
+## CMakeLists.txt
+```
+cmake_minimum_required(VERSION 3.14)
+
+project(Dynamic)
+
+add_library(StaticSource STATIC source/block.c)
+
+add_library(SharedSource SHARED source/block.c)
+
+# add the executable                                                          
+add_executable(Shared program.c)
+target_link_libraries(Shared SharedSource)
+
+add_executable(Static program.c)
+target_link_libraries(Static StaticSource)
+```
+
+## Size analysis
+
+Both the Static and Shared versions of the program are approximately the same size, but static is a little bit bigger (Static 16712 vs Shared 16536).
+
+## Results
+
+![picture](images/staticvsshared.png)
