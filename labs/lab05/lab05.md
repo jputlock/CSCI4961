@@ -59,7 +59,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
                              )
 ```
 
-!(step1)[images/step1.png]
+![step1](images/step1.png)
 
 ## Step 2
 
@@ -140,7 +140,7 @@ target_include_directories(Tutorial PUBLIC
                           )            
 ```
 
-!(step2)[images/step2.png]
+![step2](images/step2.png)
 
 ## Step 3
 
@@ -188,7 +188,7 @@ add_library(MathFunctions mysqrt.cxx)
 target_include_directories(MathFunctions INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 ```
 
-!(step3)[images/step3.png]
+![step3](images/step3.png)
 
 ## Step 4
 
@@ -269,7 +269,7 @@ target_include_directories(MathFunctions
           )
 ```
 
-!(step4)[images/step4.png]
+![step4](images/step4.png)
 
 ## Step 5
 
@@ -367,7 +367,7 @@ install(TARGETS MathFunctions DESTINATION lib)
 install(FILES MathFunctions.h DESTINATION include)
 ```
 
-!(step5)[images/step5.png]
+![step5](images/step5.png)
 
 # Part 2
 
