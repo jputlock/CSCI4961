@@ -4,14 +4,14 @@
 
 
 %This specifies a larger left margin to permit grader remarks to be added.
-\usepackage[letterpaper]{geometry}
+\usepackage[letterpaper, margin=1in]{geometry}
 
 \author{Jeff Putlock}
 \date{\today}
-\title{Open Source Analysis}
+\title{\vspace*{-3cm}Open Source Analysis}
 
 \usepackage{array}
-\newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
+\newcolumntype{L}{>{\centering\arraybackslash}m{10cm}}
 
 \begin{document}
 	
@@ -22,59 +22,62 @@
 	\begin{enumerate}
 		\item Submitty
 		
-		\noindent\begin{tabular}{ | c | c | p{5cm} | } 
+		\hspace*{-1cm}
+		\noindent\begin{tabular}{ | c | c | L | } 
 			\hline
 			Evaluation Factor & Level (0-2) & Evaluation Data \\\hline
-			Licensing & 2 & BSD License: https://github.com/ Submitty/Submitty/ blob/master/LICENSE.md \\\hline
-			Language & 1 & Python / C++ \\\hline
-			Level of Activity & 2 & All weeks have commits \\\hline		
-			Number of Contributors & 2 & There are 93 contributors \\\hline
-			Product Size &  & b \\\hline
-			Issue Tracker & a & b \\\hline
-			New Contributor & a & b \\\hline
-			Community Norms & a & b \\\hline
-			User Base & a & b \\\hline
-			Total Score & a & b \\\hline
+			Licensing & 2 & Submitty uses the BSD 3-clause license. \\\hline
+			Language & 1 & Submitty uses mostly PHP and HTML with some Python / C++, which I would prefer to do. \\\hline
+			Level of Activity & 2 & For the past year, every week has had a commit. \\\hline		
+			Number of Contributors & 2 & There have been 93 contributors over the course of Submitty's development. \\\hline
+			Product Size & 2 & This project has many lines of code and the total repository amounts to 38 megabytes of data. \\\hline
+			Issue Tracker & 2 & There are 278 open issues and 1427 closed. There have been multiple issues opened and closed within the past few days. \\\hline
+			New Contributor & 2 & There are multiple links around that point you to "suggestions for new developers." \\\hline
+			Community Norms & 1 & There are no blatant examples of poor behavior but also no stated code of conduct. \\\hline
+			User Base & 2 & Submitty has the RPI Computer Science student body as its userbase and is growing to other sections of the school and to other universities. The slack channel has open communication between people struggling to use it or set it up, and there are detailed instruction lists. \\\hline
+			Total Score & 16 / 18& \\\hline
 		\end{tabular}
 	
-		\item Project 2
+	\newpage
+	
+		\item YACS - Yet Another Course Scheduler
 		
-		\noindent\begin{tabular}{ |c|c|c| } 
+		\hspace*{-1cm}
+		\noindent\begin{tabular}{ | c | c | L | } 
 			\hline
 			Evaluation Factor & Level (0-2) & Evaluation Data \\\hline
-			Licensing & a & b \\\hline
-			Language & a & b \\\hline
-			Level of Activity & a & b \\\hline		
-			Number of Contributors & a & b \\\hline
-			Product Size & a & b \\\hline
-			Issue Tracker & a & b \\\hline
-			New Contributor & a & b \\\hline
-			Community Norms & a & b \\\hline
-			User Base & a & b \\\hline
-			Total Score & a & b \\\hline
+			Licensing & 2& YACS uses the AGPL license. \\\hline
+			Language & 0 & It is written mostly in Ruby and also using Typescript, neither of which I am particularly interested or skilled in. \\\hline
+			Level of Activity & 1 & It was active for a large portion of the year except the past few weeks. \\\hline		
+			Number of Contributors & 2 & There have been 39 contributors over the course of development. \\\hline
+			Product Size & 2 & The project is fairly large, amounting to approximately 20 megabytes of data. \\\hline
+			Issue Tracker & 1 & There are some issues being added and removed but fairly slowly. \\\hline
+			New Contributor & 2 & The project clearly outlines where new contributors should go to get started and specifically mark off which issues are beginner-friendly. \\\hline
+			Community Norms & 2 & The project clearly displays a Code of Conduct and has no obvious poor behavior. \\\hline
+			User Base & 2 & The entirety of the RPI community uses YACS as their course scheduler, and NYU will soon be using it as well. \\\hline
+			Total Score & 14 / 18 & \\\hline
 		\end{tabular}
 	
-		\item Project 3
+		\item TensorFlow
 		
-		\noindent\begin{tabular}{ |c|c|c| } 
+		\hspace*{-1cm}
+		\noindent\begin{tabular}{ | c | c | L | } 
 			\hline
 			Evaluation Factor & Level (0-2) & Evaluation Data \\\hline
-			Licensing & a & b \\\hline
-			Language & a & b \\\hline
-			Level of Activity & a & b \\\hline		
-			Number of Contributors & a & b \\\hline
-			Product Size & a & b \\\hline
-			Issue Tracker & a & b \\\hline
-			New Contributor & a & b \\\hline
-			Community Norms & a & b \\\hline
-			User Base & a & b \\\hline
-			Total Score & a & b \\\hline
+			Licensing & 2 & TensorFlow is licensed under the Apache 2.0 license. \\\hline
+			Language & 2 & It is written mainly in both C++ and Python. \\\hline
+			Level of Activity & 2 & It is constantly being updated with well over one hundred commits each week. \\\hline		
+			Number of Contributors & 2 & There are 2043 contributors working on the project. \\\hline
+			Product Size & 2 & The project makes up a whopping 350 MB. \\\hline
+			Issue Tracker & 2 & There are plenty of issues being reported constantly, and many being closed each day. \\\hline
+			New Contributor & 2 & Inside of the contributing guidelines page, there are links that send you to beginner friendly issues to resolve. \\\hline
+			Community Norms & 2 & There is a clear Code of Conduct linked multiple times, with community standards also posted afterwards. \\\hline
+			User Base & 2 & Many companies and users use TensorFlow across the world to create neural networks. \\\hline
+			Total Score & 18 / 18 & \\\hline
 		\end{tabular}
 	
 	\end{enumerate}
 	
-	
-	
-	\section{2}
+	\section{In-Depth Analysis}
 	
 \end{document}
