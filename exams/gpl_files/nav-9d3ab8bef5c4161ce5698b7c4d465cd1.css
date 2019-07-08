@@ -1,0 +1,46 @@
+
+@-webkit-keyframes flash{from{background:#fdffd2;} to{background:#f4fcff;}}@keyframes flash{0%{background:#fdffd2;} 100%{background:#f4fcff;}}#nav,.navbar{color:#3a3a3a;text-align:right;background:#eee;border-bottom:solid 1px #ccc;margin-bottom:0px;top:0px;width:100%;line-height:52px;z-index:1000;}#nav .nav>li>a,.navbar .nav>li>a{padding:0px 13px;line-height:52px;text-shadow:none;color:#5a5a5a;font-weight:100;}#nav .nav>li>a:hover,.navbar .nav>li>a:hover{color:#45baf1;}
+#nav .btn-reverse-search,.navbar .btn-reverse-search{cursor:pointer;margin-left:10px;}#nav .btn-reverse-search i,.navbar .btn-reverse-search i{background:#f9c32c;border-radius:50%;padding:4px;display:inline-block;height:11px;width:11px;font-size:11px;line-height:1em;color:#fff;}
+#nav .btn-reverse-search:hover,.navbar .btn-reverse-search:hover{text-decoration:none;}
+#nav .brand,.navbar .brand{text-shadow:none;color:#555;margin-left:0px;padding:0px 13px;font-family:Arial !important;font-weight:400 !important;}#nav .brand .label,.navbar .brand .label{position:absolute;text-shadow:none;font-size:8px;top:35px;left:45px;padding:0px 4px;background:#ddd;}
+#nav img.nav-avatar,.navbar img.nav-avatar{margin-top:-1px;margin-right:5px;border-radius:2px;}
+#nav .account-dropdown-menu,.navbar .account-dropdown-menu{border-radius:0px;box-shadow:none;margin-top:0px;padding:0px;border-color:#ccc;}#nav .account-dropdown-menu li>a,.navbar .account-dropdown-menu li>a{padding:10px 15px;}
+#nav .account-dropdown-menu li>form,.navbar .account-dropdown-menu li>form{padding:15px;text-align:left;color:#000;}
+#nav .account-dropdown-menu li>a:hover,.navbar .account-dropdown-menu li>a:hover{background:#45baf1;}
+.navbar.spacer{height:50px;padding:0px;margin:0px;}
+.navbar-inner{border-radius:0px;background:transparent;border:none;}
+#nav #logo{font-family:Arial;font-weight:100;letter-spacing:1px;}
+#nav .navbar-inner a#logo:hover{color:#fff;}
+.navbar.navbar-fixed{position:fixed;top:0px;z-index:1000;width:100%;}
+body #page-wrapper{display:table;height:100%;width:100%;}body #page-wrapper #page-wrapper-inner{display:table-row;height:auto;}body #page-wrapper #page-wrapper-inner #page-content-wrapper{padding-top:53px;}
+body #page-wrapper #page-wrapper-inner #page-content-wrapper,body #page-wrapper #page-wrapper-inner #page-content{height:100%;}
+#footer{display:table-row;padding:10px 0px;background:#eee;height:0px;border-top:solid 1px #ccc;}
+#footer .nav-list>li>a{color:#999;text-shadow:none;}
+#footer .nav-list>li a:hover{color:#45baf1;}
+#footer .nav-list>li a:hover{background:transparent;}
+#footer .nav-list .nav-header{color:#ccc;}
+#footer #copy{color:#bbb;font-size:12px;}
+.main-searchbar{float:left;position:relative;width:39%;padding-right:14px;margin-bottom:0px;}.main-searchbar .typeahead{border-radius:0px;text-align:left;margin-top:10px;display:block;width:614px;padding:0px;box-shadow:none;color:#000;}.main-searchbar .typeahead li a{font-family:Arial !important;padding:10px;color:inherit;}
+.main-searchbar .typeahead a.submit{cursor:pointer;}
+.main-searchbar .typeahead li.active a,.main-searchbar .typeahead li.active a:hover{color:#333;background:#eee;}
+.main-searchbar .searchbar{border:none;color:#777;font-size:14px;outline:none;padding:5px 7px;box-shadow:none;background:#fff;border-radius:0px;margin:9px 0px;width:100%;}.main-searchbar .searchbar:focus{outline:none !important;}
+.main-searchbar a.submit{border:none;color:#fff;position:absolute;display:inline-block;padding:6px 8px;top:12px;right:0px;line-height:1em;background-color:#45baf1;border-color:#43a6d5;border-top:solid 1px #62b5dd;border-radius:0px;font-size:16px;}.main-searchbar a.submit:hover{text-decoration:none;background-color:#6BD0FF;border-color:#4dbae9;border-top-color:#76c9f1;}
+.notification-icon{font-size:16px;vertical-align:middle;line-height:16px;}
+.notification-icon-unread{color:#45baf1;}
+#notification-panel .nav-header{border-top:none;position:absolute;top:53px;left:1px;width:400px;padding:0px;z-index:1001;text-align:left;display:block;}#notification-panel .nav-header>span{padding:5px 10px;border-bottom:solid 1px #ccc;background:#fff;display:block;}
+#notification-panel .nav-footer{padding:5px;}
+#notification-panel .notification-unread{background:#f4fcff;animation-name:flash;animation-timing-function:ease-out;animation-duration:.5s;-webkit-animation-name:flash;-webkit-animation-timing-function:ease-out;-webkit-animation-duration:.5s;}
+#notification-panel ul{width:400px;max-height:500px;padding-top:30px !important;overflow:auto;}#notification-panel ul li{font-size:14px;line-height:1.5em;padding:10px;display:block;text-align:left;border-top:solid 1px #eee;cursor:pointer;}#notification-panel ul li .notification-subtitle{font-size:.8em;}#notification-panel ul li .notification-subtitle .reputation{margin-left:5px;}#notification-panel ul li .notification-subtitle .reputation.reputation-up{color:#71c971;}
+#notification-panel ul li .notification-subtitle .reputation.reputation-down{color:#c97171;}
+#notification-panel ul li[data-href]:hover{background:#45baf1;}#notification-panel ul li[data-href]:hover a,#notification-panel ul li[data-href]:hover p,#notification-panel ul li[data-href]:hover b{color:#fff !important;}
+#notification-panel ul li[data-href]:hover,#notification-panel ul li[data-href]:hover .notification-subtitle{color:rgba(255, 255, 255, 0.7);}
+#notification-panel ul li>a>.notification-title{white-space:normal;display:block;}
+.btn-open-notifications{position:relative;padding:0px 8px !important;}.btn-open-notifications .badge{position:absolute;padding:0px;text-shadow:none;padding:2px 4px;border-radius:50%;line-height:1em;font-size:10px;right:6px;top:12px;}
+form.login-form{margin-bottom:0px;}form.login-form hr{margin:10px 0px;padding:0px;}
+form.login-form small{display:block;margin-top:5px;}
+.btn-login-facebook,.btn-login-google,.btn-login-twitter{border-radius:5px;padding:10px;display:block;margin:5px 0px;color:#fff !important;}.btn-login-facebook i,.btn-login-google i,.btn-login-twitter i{display:inline-block;width:16px;background-align:center;}
+.btn-login-facebook:hover,.btn-login-google:hover,.btn-login-twitter:hover{color:#fff;text-decoration:none;}
+.btn-login-facebook{background:#3B5998;}.btn-login-facebook:hover{background:#4c70ba;}
+.btn-login-google{background:#D34836;}.btn-login-google:hover{background:#dc6e60;}
+.btn-login-twitter{background:#00acee;}.btn-login-twitter:hover{background:#22c2ff;}
+a.dropdown-toggle{outline:none !important;}

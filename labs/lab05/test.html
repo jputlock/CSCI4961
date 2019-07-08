@@ -1,0 +1,392 @@
+<h1 id="lab-05">Lab 05</h1>
+<h2 id="step-1">Step 1:</h2>
+<h3 id="tutorial.cxx">tutorial.cxx</h3>
+<pre><code>// A simple program that computes the square root of a number
+#include &lt;cmath&gt;
+#include &lt;cstdlib&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+#include &quot;TutorialConfig.h&quot;
+
+int main(int argc, char* argv[])
+{
+  if (argc &lt; 2) {
+    std::cout &lt;&lt; &quot;Usage: &quot; &lt;&lt; argv[0] &lt;&lt; &quot; number&quot; &lt;&lt; std::endl;
+    return 1;
+  }
+
+  std::cout &lt;&lt; &quot;This is version number &quot; &lt;&lt; Tutorial_VERSION_MAJOR &lt;&lt; &quot;.&quot; &lt;&lt; Tutorial_VERSION_MINOR &lt;&lt; std::endl;
+
+  double inputValue = std::stod(argv[1]);
+
+  double outputValue = sqrt(inputValue);
+  std::cout &lt;&lt; &quot;The square root of &quot; &lt;&lt; inputValue &lt;&lt; &quot; is &quot; &lt;&lt; outputValue
+            &lt;&lt; std::endl;
+  return 0;
+}
+</code></pre>
+<h3 id="cmakelists.txt">CMakeLists.txt</h3>
+<pre><code>cmake_minimum_required(VERSION 3.14)
+
+project(Tutorial)
+
+set(Tutorial_VERSION_MAJOR 1)
+set(Tutorial_VERSION_MINOR 0)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+ # configure a header file to pass some of the CMake settings                  
+  # to the source code                                                          
+  configure_file(                                                               
+    &quot;${PROJECT_SOURCE_DIR}/TutorialConfig.h.in&quot;                                 
+    &quot;${PROJECT_BINARY_DIR}/TutorialConfig.h&quot;                                    
+    )                                                                           
+
+  # add the executable                                                          
+  add_executable(Tutorial tutorial.cxx)                                         
+
+  # add the binary tree to the search path for include files                    
+  # so that we will find TutorialConfig.h                                       
+  target_include_directories(Tutorial PUBLIC                                    
+                             &quot;${PROJECT_BINARY_DIR}&quot;                            
+                             )</code></pre>
+<figure>
+<img src="images/step1.png" alt="step1" /><figcaption>step1</figcaption>
+</figure>
+<h2 id="step-2">Step 2</h2>
+<h3 id="tutorial.cxx-1">tutorial.cxx</h3>
+<pre><code>// A simple program that computes the square root of a number
+#include &lt;cmath&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+#include &quot;TutorialConfig.h&quot;
+
+#ifdef USE_MYMATH
+    #include &quot;MathFunctions.h&quot;
+#endif
+
+int main(int argc, char* argv[]){
+    if (argc &lt; 2) {
+        std::cout &lt;&lt; argv[0] &lt;&lt; &quot; Version &quot; &lt;&lt; Tutorial_VERSION_MAJOR &lt;&lt; &quot;.&quot;
+                             &lt;&lt; Tutorial_VERSION_MINOR &lt;&lt; std::endl;
+        std::cout &lt;&lt; &quot;Usage: &quot; &lt;&lt; argv[0] &lt;&lt; &quot; number&quot; &lt;&lt; std::endl;
+        return 1;
+    }
+
+    double inputValue = std::stod(argv[1]);
+
+    double outputValue = 0;
+
+    #ifdef USE_MYMATH
+        outputValue = mysqrt(inputValue);
+    #else
+        outputValue = sqrt(inputValue);
+    #endif
+    std::cout &lt;&lt; &quot;The square root of &quot; &lt;&lt; inputValue &lt;&lt; &quot; is &quot; &lt;&lt; outputValue
+            &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+<h3 id="cmakelists.txt-1">CMakeLists.txt</h3>
+<pre><code> cmake_minimum_required(VERSION 3.3)                                           
+project(Tutorial)                                                             
+
+set(CMAKE_CXX_STANDARD 14)                                                    
+
+# the version number.                                                         
+set(Tutorial_VERSION_MAJOR 1)                                                 
+set(Tutorial_VERSION_MINOR 0)                                                 
+
+# configure a header file to pass some of the CMake settings                  
+# to the source code                                                          
+configure_file(                                                               
+    &quot;${PROJECT_SOURCE_DIR}/TutorialConfig.h.in&quot;                                 
+    &quot;${PROJECT_BINARY_DIR}/TutorialConfig.h&quot;                                    
+)                                                                           
+
+# should we use our own math functions                                        
+option(USE_MYMATH &quot;Use tutorial provided math implementation&quot; ON)             
+
+# add the MathFunctions library?                                              
+if(USE_MYMATH)                                                                
+    add_subdirectory(MathFunctions)                                             
+    list(APPEND EXTRA_LIBS MathFunctions)                                       
+    list(APPEND EXTRA_INCLUDES &quot;${PROJECT_SOURCE_DIR}/MathFunctions&quot;)           
+endif(USE_MYMATH)                                                             
+
+# add the executable                                                          
+add_executable(Tutorial tutorial.cxx)                                         
+
+target_link_libraries(Tutorial ${EXTRA_LIBS})                                 
+
+# add the binary tree to the search path for include files                    
+# so that we will find TutorialConfig.h                                       
+target_include_directories(Tutorial PUBLIC                                    
+                           &quot;${PROJECT_BINARY_DIR}&quot;                            
+                            ${EXTRA_INCLUDES}                                  
+                          )            </code></pre>
+<figure>
+<img src="images/step2.png" alt="step2" /><figcaption>step2</figcaption>
+</figure>
+<h2 id="step-3">Step 3</h2>
+<h3 id="cmakelists.txt-2">CMakeLists.txt</h3>
+<pre><code>cmake_minimum_required(VERSION 3.3)
+project(Tutorial)
+
+set(CMAKE_CXX_STANDARD 14)
+
+# should we use our own math functions
+option(USE_MYMATH &quot;Use tutorial provided math implementation&quot; ON)
+
+# the version number.
+set(Tutorial_VERSION_MAJOR 1)
+set(Tutorial_VERSION_MINOR 0)
+
+# configure a header file to pass some of the CMake settings
+# to the source code
+configure_file(
+  &quot;${PROJECT_SOURCE_DIR}/TutorialConfig.h.in&quot;
+  &quot;${PROJECT_BINARY_DIR}/TutorialConfig.h&quot;
+  )
+
+# add the MathFunctions library?
+if(USE_MYMATH)
+    add_subdirectory(MathFunctions)
+    list(APPEND EXTRA_LIBS MathFunctions)
+endif(USE_MYMATH)
+
+# add the executable
+add_executable(Tutorial tutorial.cxx)
+
+target_link_libraries(Tutorial ${EXTRA_LIBS})
+
+
+target_include_directories(Tutorial PUBLIC
+                           &quot;${PROJECT_BINARY_DIR}&quot;
+                           )</code></pre>
+<h3 id="mathfunctionscmakelists.txt">MathFunctions/CMakeLists.txt</h3>
+<pre><code>add_library(MathFunctions mysqrt.cxx)
+target_include_directories(MathFunctions INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})</code></pre>
+<figure>
+<img src="images/step3.png" alt="step3" /><figcaption>step3</figcaption>
+</figure>
+<h2 id="step-4">Step 4</h2>
+<h3 id="cmakelists.txt-3">CMakeLists.txt</h3>
+<pre><code>cmake_minimum_required(VERSION 3.3)
+project(Tutorial)
+
+set(CMAKE_CXX_STANDARD 14)
+
+# should we use our own math functions
+option(USE_MYMATH &quot;Use tutorial provided math implementation&quot; ON)
+
+# the version number.
+set(Tutorial_VERSION_MAJOR 1)
+set(Tutorial_VERSION_MINOR 0)
+
+# configure a header file to pass some of the CMake settings
+# to the source code
+configure_file(
+  &quot;${PROJECT_SOURCE_DIR}/TutorialConfig.h.in&quot;
+  &quot;${PROJECT_BINARY_DIR}/TutorialConfig.h&quot;
+  )
+
+# add the MathFunctions library?
+if(USE_MYMATH)
+  add_subdirectory(MathFunctions)
+  list(APPEND EXTRA_LIBS MathFunctions)
+endif(USE_MYMATH)
+
+# add the executable
+add_executable(Tutorial tutorial.cxx)
+
+install (TARGETS Tutorial DESTINATION bin)
+install (FILES &quot;${PROJECT_BINARY_DIR}/TutorialConfig.h&quot; DESTINATION include)
+
+target_link_libraries(Tutorial PUBLIC ${EXTRA_LIBS})
+
+# add the binary tree to the search path for include files
+# so that we will find TutorialConfig.h
+target_include_directories(Tutorial PUBLIC
+                           &quot;${PROJECT_BINARY_DIR}&quot;
+                           )
+enable_testing()
+
+# format: NAME &lt;name of test&gt; COMMAND &lt;name of command&gt; &lt;args&gt;
+
+# testing if it runs
+add_test(NAME Runs COMMAND Tutorial 25)
+
+# testing if it provides usage message
+add_test(NAME Usage COMMAND Tutorial)
+set_tests_properties(Usage PROPERTIES PASS_REGULAR_EXPRESSION &quot;Usage:.*number&quot;)
+
+# define a function to simplify adding more tests
+function (do_test target arg result)
+    add_test(NAME Comp${arg} COMMAND ${target} ${arg})
+    set_tests_properties(Comp${arg}
+        PROPERTIES PASS_REGULAR_EXPRESSION ${result})
+endfunction(do_test)
+
+do_test(Tutorial 25 &quot;25 is 5&quot;)
+do_test(Tutorial -25 &quot;-25 is [-nan|nan|0]&quot;)
+do_test(Tutorial 0.0001 &quot;0.0001 is 0.01&quot;)</code></pre>
+<h3 id="mathfunctionscmakelists.txt-1">MathFunctions/CMakeLists.txt</h3>
+<pre><code>add_library(MathFunctions mysqrt.cxx)
+
+install (TARGETS MathFunctions DESTINATION bin)
+install (FILES MathFunctions.h DESTINATION include)
+
+# state that anybody linking to us needs to include the current source dir
+# to find MathFunctions.h, while we don&#39;t.
+target_include_directories(MathFunctions
+          INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}
+          )</code></pre>
+<figure>
+<img src="images/step4.png" alt="step4" /><figcaption>step4</figcaption>
+</figure>
+<h2 id="step-5">Step 5</h2>
+<h3 id="cmakelists.txt-4">CMakeLists.txt</h3>
+<pre><code>cmake_minimum_required(VERSION 3.3)
+project(Tutorial)
+
+set(CMAKE_CXX_STANDARD 14)
+
+# should we use our own math functions
+option(USE_MYMATH &quot;Use tutorial provided math implementation&quot; ON)
+
+# the version number.
+set(Tutorial_VERSION_MAJOR 1)
+set(Tutorial_VERSION_MINOR 0)
+
+# configure a header file to pass some of the CMake settings
+# to the source code
+configure_file(
+  &quot;${PROJECT_SOURCE_DIR}/TutorialConfig.h.in&quot;
+  &quot;${PROJECT_BINARY_DIR}/TutorialConfig.h&quot;
+  )
+
+# does this system provide log and exp?
+include(CheckSymbolExists)
+set(CMAKE_REQUIRED_LIBRARIES &quot;m&quot;)
+check_symbol_exists(log &quot;math.h&quot; HAVE_LOG)
+check_symbol_exists(exp &quot;math.h&quot; HAVE_EXP)
+
+# add the MathFunctions library?
+if(USE_MYMATH)
+  add_subdirectory(MathFunctions)
+  list(APPEND EXTRA_LIBS MathFunctions)
+endif()
+
+# add the executable
+add_executable(Tutorial tutorial.cxx)
+target_link_libraries(Tutorial PUBLIC ${EXTRA_LIBS})
+
+# add the binary tree to the search path for include files
+# so that we will find TutorialConfig.h
+target_include_directories(Tutorial PUBLIC
+                           &quot;${PROJECT_BINARY_DIR}&quot;
+                           )
+
+# add the install targets
+install(TARGETS Tutorial DESTINATION bin)
+install(FILES &quot;${PROJECT_BINARY_DIR}/TutorialConfig.h&quot;
+  DESTINATION include
+  )
+
+# enable testing
+enable_testing()
+
+# does the application run
+add_test(NAME Runs COMMAND Tutorial 25)
+
+# does the usage message work?
+add_test(NAME Usage COMMAND Tutorial)
+set_tests_properties(Usage
+  PROPERTIES PASS_REGULAR_EXPRESSION &quot;Usage:.*number&quot;
+  )
+
+# define a function to simplify adding tests
+function(do_test target arg result)
+  add_test(NAME Comp${arg} COMMAND ${target} ${arg})
+  set_tests_properties(Comp${arg}
+    PROPERTIES PASS_REGULAR_EXPRESSION ${result}
+    )
+endfunction(do_test)
+
+# do a bunch of result based tests
+do_test(Tutorial 4 &quot;4 is 2&quot;)
+do_test(Tutorial 9 &quot;9 is 3&quot;)
+do_test(Tutorial 5 &quot;5 is 2.236&quot;)
+do_test(Tutorial 7 &quot;7 is 2.645&quot;)
+do_test(Tutorial 25 &quot;25 is 5&quot;)
+do_test(Tutorial -25 &quot;-25 is [-nan|nan|0]&quot;)
+do_test(Tutorial 0.0001 &quot;0.0001 is 0.01&quot;)</code></pre>
+<h3 id="mathfunctionscmakelists.txt-2">MathFunctions/CMakeLists.txt</h3>
+<pre><code>add_library(MathFunctions mysqrt.cxx)
+
+# state that anybody linking to us needs to include the current source dir
+# to find MathFunctions.h, while we don&#39;t.
+target_include_directories(MathFunctions
+          INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}
+      PRIVATE ${Tutorial_BINARY_DIR}
+          )
+
+install(TARGETS MathFunctions DESTINATION lib)
+install(FILES MathFunctions.h DESTINATION include)</code></pre>
+<figure>
+<img src="images/step5.png" alt="step5" /><figcaption>step5</figcaption>
+</figure>
+<h1 id="part-2">Part 2</h1>
+<h2 id="makefile">Makefile</h2>
+<pre><code>all: static
+
+shared: program.o libblock.so
+    cc program.o libblock.so -o shared -Wl,-rpath=&#39;.&#39;
+
+static: program.o libprint.a
+    cc program.o libprint.a -o static
+
+program.o:
+    cc -fPIC -c program.c -o program.o
+
+# Creating a Static Library
+
+libprint.a: block.o
+    ar qc libprint.a source/block.o
+
+# Creating a Shared Library
+
+libblock.so: block.o
+    cc -shared -o libblock.so source/block.o
+
+# both libraries depend on this
+
+block.o:
+    cc -fPIC -c source/block.c -o source/block.o
+
+clean:
+    rm -f *.o Makefile.bak</code></pre>
+<h2 id="cmakelists.txt-5">CMakeLists.txt</h2>
+<pre><code>cmake_minimum_required(VERSION 3.14)
+
+project(Dynamic)
+
+add_library(StaticSource STATIC source/block.c)
+
+add_library(SharedSource SHARED source/block.c)
+
+# add the executable                                                          
+add_executable(Shared program.c)
+target_link_libraries(Shared SharedSource)
+
+add_executable(Static program.c)
+target_link_libraries(Static StaticSource)</code></pre>
+<h2 id="size-analysis">Size analysis</h2>
+<p>Both the Static and Shared versions of the program are approximately the same size, but static is a little bit bigger (Static 16712 vs Shared 16536).</p>
+<h2 id="results">Results</h2>
+<figure>
+<img src="images/staticvsshared.png" alt="picture" /><figcaption>picture</figcaption>
+</figure>
