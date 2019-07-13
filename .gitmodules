@@ -1,0 +1,3 @@
+[submodule "labs/lab06/docker-examples"]
+	path = labs/lab06/docker-examples
+	url = git@github.com:rcos/docker-examples.git
