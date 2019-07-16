@@ -18,7 +18,13 @@ I then ran `apt update` and `apt install vim` to update the packages in the Ubun
 
 ## Example 2
 
-I tried... it no worky
+After much trial and error, I ended up using Dr. Turner's solution of using an outdated version of RocketChat by running the following commands:
+
+![ex2](images/example2.png)
+
+This created a working version of RocketChat that can be seen here:
+
+![ex2a](images/ex2.png)
 
 ## Example 3
 
