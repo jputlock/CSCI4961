@@ -1,0 +1,29 @@
+Loaded words_dat.txt containing 5757 five-letter English words.
+Two words are connected if they differ in one letter.
+Graph has 2174 nodes with 40644 edges
+7 connected components
+Shortest path between cold and warm is
+cold
+clad
+calm
+cram
+warm
+Shortest path between love and hate is
+love
+aloe
+late
+hate
+Shortest path between good and evil is
+good
+doge
+dove
+dive
+evil
+Shortest path between pear and beef is
+pear
+fare
+reef
+beef
+Shortest path between make and take is
+make
+take

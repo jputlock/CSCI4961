@@ -27,3 +27,5 @@ Picture of me:
 [Lab 5](labs/lab05/lab05.md)
 
 [Lab 6](labs/lab06/lab06.md)
+
+[Lab 7](labs/lab07/lab07.md)
