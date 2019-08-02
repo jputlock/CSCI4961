@@ -12,19 +12,19 @@
 
 First I curated the following pictures:
 
-![sleveless](images/orig_sleeveless.png)
+![bag](images/orig_bag.png)
 
 ![jorts](images/orig_jorts.png)
 
-![bag](images/orig_bag.png)
+![sleveless](images/orig_sleeveless.png)
 
 I then transformed them into the following photos, and used the ImageOps module to finish the adjustments necessary:
 
-![sl](images/sleeveless.png)
+![ba](images/bag.png)
 
 ![jt](images/jorts.png)
 
-![ba](images/bag.png)
+![sl](images/sleeveless.png)
 
 I then got the following results:
 
