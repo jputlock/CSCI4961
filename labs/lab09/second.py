@@ -7,6 +7,7 @@ from tensorflow import keras
 # Helper libraries
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image, ImageOps
 
 print(tf.__version__)
 
@@ -16,8 +17,6 @@ fashion_mnist = keras.datasets.fashion_mnist
 
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
-
-train_images.shape
 
 # plt.figure()
 # plt.imshow(train_images[0])
@@ -88,16 +87,40 @@ def plot_value_array(i, predictions_array, true_label):
     thisplot[predicted_label].set_color('red')
     thisplot[true_label].set_color('blue')
 
+def get_max(image_path):
+    im = Image.open(image_path)
+    im = ImageOps.invert(im)
+    im = ImageOps.grayscale(im)
+    np_im = (np.expand_dims(im,0))
+    np_im = np_im / 255.0
+    bag_prediction = model.predict(np_im)
+
+    predicted_label = np.argmax(bag_prediction)
+    print(bag_prediction, predicted_label, class_names[predicted_label])
+
+get_max("images/bag.png")
+get_max("images/sleeveless.png")
+get_max("images/jorts.png")
+
+# num_cols = 2
+# num_rows = 3
+# plt.figure(figsize=(num_rows, num_cols))
+# for i in range(3):
+#     plt.subplot(num_rows, num_cols, 2*i + 1)
+#     plot_image(i, bag_prediction, test_labels, np_im)
+#     plt.subplot(num_rows, num_cols, 2 * i + 2)
+#     plot_value_array(i, bag_prediction, test_labels)
+# plt.show()
+
 # Plot the first X test images, their predicted label, and the true label
 # Color correct predictions in blue, incorrect predictions in red
-
-num_rows = 5
-num_cols = 3
-num_images = num_rows*num_col
-plt.figure(figsize=(2*2*num_cols, 2*num_rows))
-for i in range(num_images):
-    plt.subplot(num_rows, 2*num_cols, 2*i+1)
-    plot_image(i, predictions, test_labels, test_images)
-    plt.subplot(num_rows, 2*num_cols, 2*i+2)
-    plot_value_array(i, predictions, test_labels)
-plt.show()
+# num_rows = 5
+# num_cols = 3
+# num_images = num_rows*num_cols
+# plt.figure(figsize=(2*2*num_cols, 2*num_rows))
+# for i in range(num_images):
+#     plt.subplot(num_rows, 2*num_cols, 2*i+1)
+#     plot_image(9000 + i, predictions, test_labels, test_images)
+#     plt.subplot(num_rows, 2*num_cols, 2*i+2)
+#     plot_value_array(9000 + i, predictions, test_labels)
+# plt.show()
