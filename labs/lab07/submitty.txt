@@ -1,1 +1,1 @@
-https://github.com/rcos/CSCI-49XX-OpenSource/blob/master/Modules/ScientificComputing/Lab-ScientificComputing.md
+https://github.com/jputlock/CSCI4961/blob/master/labs/lab07/lab07.md
