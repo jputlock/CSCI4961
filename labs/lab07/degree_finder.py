@@ -46,20 +46,20 @@ def generate_graph(words):
     lookup = dict((c, lowercase.index(c)) for c in lowercase)
 
     # give possible off-by-ones
-    def edit_distance_one(word):
-        for word_perm in perms(word, len(word)):
-            for i in range(len(word_perm)):
-                for letter in lowercase:
-                    new_word = ''.join(word_perm)
-                    new_word = new_word[:i] + letter + new_word[i+1:]
-                    yield new_word
-    # can't edit order
     # def edit_distance_one(word):
-    #     for i in range(len(word)):
-    #         left, c, right = word[0:i], word[i], word[i + 1:]
-    #         j = lookup[c]  # lowercase.index(c)
-    #         for cc in lowercase[j + 1:]:
-    #             yield left + cc + right
+    #     for word_perm in perms(word, len(word)):
+    #         for i in range(len(word_perm)):
+    #             for letter in lowercase:
+    #                 new_word = ''.join(word_perm)
+    #                 new_word = new_word[:i] + letter + new_word[i+1:]
+    #                 yield new_word
+    # can't edit order
+    def edit_distance_one(word):
+        for i in range(len(word)):
+            left, c, right = word[0:i], word[i], word[i + 1:]
+            j = lookup[c]  # lowercase.index(c)
+            for cc in lowercase[j + 1:]:
+                yield left + cc + right
 
     candgen = ((word, cand) for word in sorted(words)
                for cand in edit_distance_one(word) if cand in words)
@@ -92,17 +92,9 @@ if __name__ == '__main__':
           % (nx.number_of_nodes(G), nx.number_of_edges(G)))
     print("%d connected components" % nx.number_connected_components(G))
 
-    word_len = 5
-    for (source, target) in [('chaos', 'order'),
-                             ('nodes', 'graph'),
-                             ('moron', 'smart'),
-                             ('flies', 'swims'),
-                             ('mango', 'peach'),
-                             ('pound', 'marks')]:
-        print("Shortest path between %s and %s is" % (source, target))
-        try:
-            sp = nx.shortest_path(G, source, target)
-            for n in sp:
-                print(n)
-        except nx.NetworkXNoPath:
-            print("None")
+    counter = 0
+    target = 0
+    for n, d in G.degree():
+        if d == target:
+            counter += 1
+    print("\n\n%d nodes have degree of %d" % (counter, target))

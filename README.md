@@ -16,20 +16,20 @@ Picture of me:
 
 ## Lab Reports
 
-[Lab 1](labs/lab01/lab01.md)
+[Lab 1 - Introduction](labs/lab01/lab01.md)
 
-[Lab 2](labs/lab02/lab02.md)
+[Lab 2 - Intro to Git](labs/lab02/lab02.md)
 
-[Lab 3](labs/lab03/lab03.md)
+[Lab 3 - Documentation and Community](labs/lab03/lab03.md)
 
-[Lab 4](labs/lab04/lab04.md)
+[Lab 4 - Licensing](labs/lab04/lab04.md)
 
-[Lab 5](labs/lab05/lab05.md)
+[Lab 5 - Build Systems](labs/lab05/lab05.md)
 
-[Lab 6](labs/lab06/lab06.md)
+[Lab 6 - Virtualization](labs/lab06/lab06.md)
 
-[Lab 7](labs/lab07/lab07.md)
+[Lab 7 - Scientific Computing](labs/lab07/lab07.md)
 
-[Lab 8](labs/lab08/lab08.md)
+[Lab 8 - Statistical Computing](labs/lab08/lab08.md)
 
-[Lab 9](labs/lab09/lab09.md)
+[Lab 9 - TensorFlow](labs/lab09/lab09.md)
