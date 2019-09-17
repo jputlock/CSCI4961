@@ -46,20 +46,20 @@ def generate_graph(words):
     lookup = dict((c, lowercase.index(c)) for c in lowercase)
 
     # give possible off-by-ones
-    def edit_distance_one(word):
-        for word_perm in perms(word, len(word)):
-            for i in range(len(word_perm)):
-                for letter in lowercase:
-                    new_word = ''.join(word_perm)
-                    new_word = new_word[:i] + letter + new_word[i+1:]
-                    yield new_word
-    # can't edit order
     # def edit_distance_one(word):
-    #     for i in range(len(word)):
-    #         left, c, right = word[0:i], word[i], word[i + 1:]
-    #         j = lookup[c]  # lowercase.index(c)
-    #         for cc in lowercase[j + 1:]:
-    #             yield left + cc + right
+    #     for word_perm in perms(word, len(word)):
+    #         for i in range(len(word_perm)):
+    #             for letter in lowercase:
+    #                 new_word = ''.join(word_perm)
+    #                 new_word = new_word[:i] + letter + new_word[i+1:]
+    #                 yield new_word
+    # can't edit order
+    def edit_distance_one(word):
+        for i in range(1, len(word)):
+            left, c, right = word[0:i], word[i], word[i + 1:]
+            j = lookup[c]  # lowercase.index(c)
+            for cc in lowercase[j + 1:]:
+                yield left + cc + right
 
     candgen = ((word, cand) for word in sorted(words)
                for cand in edit_distance_one(word) if cand in words)
@@ -71,7 +71,7 @@ def generate_graph(words):
 
 def words_graph():
     """Return the words example graph from the Stanford GraphBase"""
-    fh = gzip.open('words_dat.txt.gz', 'r')
+    fh = gzip.open('words4_dat.txt.gz', 'r')
     words = set()
     # get each line
     for line in fh.readlines():
@@ -83,7 +83,7 @@ def words_graph():
     return generate_graph(words)
 
 
-word_len = 5
+word_len = 4
 if __name__ == '__main__':
     G = words_graph()
     print("Loaded words_dat.txt containing 5757 five-letter English words.")
@@ -93,12 +93,7 @@ if __name__ == '__main__':
     print("%d connected components" % nx.number_connected_components(G))
 
     word_len = 5
-    for (source, target) in [('chaos', 'order'),
-                             ('nodes', 'graph'),
-                             ('moron', 'smart'),
-                             ('flies', 'swims'),
-                             ('mango', 'peach'),
-                             ('pound', 'marks')]:
+    for (source, target) in [('when', 'worm')]:
         print("Shortest path between %s and %s is" % (source, target))
         try:
             sp = nx.shortest_path(G, source, target)
